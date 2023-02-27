@@ -34,6 +34,20 @@ hipparcos = [4.514, 18.4849, 50.5454, 1.9485, 3.182, 4.953, 1.417, 25.143, 2.394
 hipparcos = np.array(hipparcos)
 difference = d - hipparcos
 
+# Finding the largest and smallest differences in data and Hipparcos data
+largest = np.max(np.abs(difference))
+index_largest = np.argmax(np.abs(difference)) + 1 # 1-indexed
+smallest = np.min(np.abs(difference))
+index_smallest = np.argmin(np.abs(difference)) + 1 # 1-indexed
+print(f"Least accurate: ", index_largest, " with difference of ", largest)
+print(f"Most accurate: ", index_smallest, " with difference of ", smallest)
+
+# Finding the most and least precise data
+most_precise = np.argmin(sigma_d) + 1 # 1-indexed
+least_precise = np.argmax(sigma_d) + 1 # 1-indexed
+print(f"Most precise: ", most_precise)
+print(f"Least precise: ", least_precise)
+
 # Plotting difference between this data and Hipparcos data
 plt.figure()
 plt.errorbar(np.arange(1, 11), difference, yerr = sigma_d, ls = "none", fmt = ".", linewidth = 1)
