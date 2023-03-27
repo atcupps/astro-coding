@@ -51,10 +51,10 @@ intensities2 = planck(wavelengths, temp2)
 plt.figure()
 
 # Plotting blackbody curve for a star with (B - V) = 0.5
-plt.plot(wavelengths, intensities1, label="(B-V) = 0.5")
+line1 = plt.plot(wavelengths, intensities1, label="(B-V) = 0.5")
 
 # Plotting blackbody curve for a star with (B - V) = 0.6
-plt.plot(wavelengths, intensities2, label="(B-V) = 0.6")
+line2 = plt.plot(wavelengths, intensities2, label="(B-V) = 0.6")
 
 # Labels
 plt.title("Blackbody Curves for Stars of Different (B-V) Values with B and V Ranges Shown")
@@ -67,8 +67,8 @@ Showing regions of wavelengths allowed through by B and V filters
 According to https://mcdonaldobservatory.org/research/instruments/ubvri-filters, 
 B ranges from 400 to 500 nm, while V ranges from 500 nm to 700 nm.
 '''
-plt.axvspan(400 * (10 ** (-9)), 500 * (10 ** (-9)), color='blue', alpha = 0.23) # For B
-plt.axvspan(500 * (10 ** (-9)), 700 * (10 ** (-9)), color='green', alpha=0.23) # For V
+rect1 = plt.axvspan(400 * (10 ** (-9)), 500 * (10 ** (-9)), color='blue', alpha = 0.23) # For B
+rect2 = plt.axvspan(500 * (10 ** (-9)), 700 * (10 ** (-9)), color='green', alpha=0.23) # For V
 
 plt.legend()
 plt.show()
