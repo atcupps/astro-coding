@@ -57,7 +57,7 @@ line1 = plt.plot(wavelengths, intensities1, label="(B-V) = 0.5")
 line2 = plt.plot(wavelengths, intensities2, label="(B-V) = 0.6")
 
 # Labels
-plt.title("Blackbody Curves for Stars of Different (B-V) Values with B and V Ranges Shown")
+plt.title("Blackbody Curves for Stars of Different (B-V) Values with B and V Ranges")
 plt.xlabel("Wavelength (m)")
 plt.ylabel("Intensity (W sr^-1 m^-3)")
 
