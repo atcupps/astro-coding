@@ -67,8 +67,8 @@ Showing regions of wavelengths allowed through by B and V filters
 According to https://mcdonaldobservatory.org/research/instruments/ubvri-filters, 
 B ranges from 400 to 500 nm, while V ranges from 500 nm to 700 nm.
 '''
-rect1 = plt.axvspan(400 * (10 ** (-9)), 500 * (10 ** (-9)), color='blue', alpha = 0.23) # For B
-rect2 = plt.axvspan(500 * (10 ** (-9)), 700 * (10 ** (-9)), color='green', alpha=0.23) # For V
+rect1 = plt.axvspan(400 * (10 ** (-9)), 500 * (10 ** (-9)), color='blue', alpha = 0.23, label="B filter") # For B
+rect2 = plt.axvspan(500 * (10 ** (-9)), 700 * (10 ** (-9)), color='green', alpha=0.23, label="V filter") # For V
 
 plt.legend()
 plt.show()
