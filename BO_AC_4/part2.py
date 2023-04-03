@@ -23,7 +23,7 @@ def plot_isoc(b_abs, v_abs, label_in, distance):
     # Using the distance modulus formula:
     b_app = 5*np.log10(distance) - 5 + b_abs
     v_app = 5*np.log10(distance) - 5 + v_abs
-    plt.plot(b_app - v_app, v_app, label=label_in)
+    plt.plot(b_app - v_app, v_app, label=label_in, alpha=0.7)
 
 # Plot for Isochrones
 plt.figure()
@@ -72,8 +72,7 @@ plt.legend()
 plt.gcf().savefig(fname="BO_AC_4/images/Isochrones_40pc.png", dpi=300)
 plt.show()
 
-
-# PLOT FOR M45:
+# PLOT FOR M45 WITH MULTIPLE ISOCHRONES:
 
 plt.figure()
 
@@ -84,7 +83,74 @@ distance_m45 = 132.5 # uncertainty of 7.5
 plt.scatter(m45['B'] - m45['V'], m45['V'], s=[4], label="M45", alpha=0.44, color="orange")
 
 # Age for M45 (found through guess and check aligning turn-off point):
+m45iso = isochrones['e8']['one']
+m45iso_B = np.array(m45iso['B'])
+m45iso_V = np.array(m45iso['V'])
+plot_isoc(m45iso_B, m45iso_V, "1 x 10^8 years", distance_m45)
+
 plot_isoc(age2e8_B, age2e8_V, "2 x 10^8 years", distance_m45)
+
+m45iso = isochrones['e8']['three']
+m45iso_B = np.array(m45iso['B'])
+m45iso_V = np.array(m45iso['V'])
+plot_isoc(m45iso_B, m45iso_V, "3 x 10^8 years", distance_m45)
+
+
+plt.gca().invert_yaxis() # smaller V is brighter
+plt.title("Comparison of Reasonable Isochrone Ages to M45")
+plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
+plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
+
+plt.legend()
+plt.gcf().savefig(fname="BO_AC_4/images/M45_Multiple.png", dpi=300)
+plt.show()
+
+# PLOT FOR M45 COMPARING DISTANCES:
+
+plt.figure()
+
+# Scatter plot for data for M45
+plt.scatter(m45['B'] - m45['V'], m45['V'], s=[4], label="M45", alpha=0.44, color="orange")
+
+
+# Distance for M45:
+distance_m45 = 125
+
+# Age for M45 (found through guess and check aligning turn-off point):
+plot_isoc(age2e8_B, age2e8_V, "125 pc", distance_m45)
+
+distance_m45 = 132.5
+
+# Age for M45 (found through guess and check aligning turn-off point):
+plot_isoc(age2e8_B, age2e8_V, "132.5 pc", distance_m45)
+
+distance_m45 = 140
+
+# Age for M45 (found through guess and check aligning turn-off point):
+plot_isoc(age2e8_B, age2e8_V, "140 pc", distance_m45)
+
+
+plt.gca().invert_yaxis() # smaller V is brighter
+plt.title("Comparison of Reasonable Distances for M45")
+plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
+plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
+
+plt.legend()
+plt.gcf().savefig(fname="BO_AC_4/images/M45_Distances.png", dpi=300)
+plt.show()
+
+# FINAL PLOT FOR M45:
+
+plt.figure()
+
+# Distance for M45 (found through guess and check aligning the main sequence):
+distance_m45 = 132.5 # uncertainty of 7.5
+
+# Scatter plot for data for M45
+plt.scatter(m45['B'] - m45['V'], m45['V'], s=[4], label="M45", alpha=0.44, color="orange")
+
+# Age for M45 (found through guess and check aligning turn-off point):
+plot_isoc(age2e8_B, age2e8_V, "2 x 10^8 years, 132.5 pc", distance_m45)
 
 
 plt.gca().invert_yaxis() # smaller V is brighter
@@ -96,7 +162,72 @@ plt.legend()
 plt.gcf().savefig(fname="BO_AC_4/images/M45_Fit.png", dpi=300)
 plt.show()
 
-# PLOT FOR M67:
+# PLOT FOR M67 WITH MULTIPLE ISOCHRONES:
+
+plt.figure()
+
+# Distance for M67 (found through guess and check aligning the main sequence):
+distance_m67 = 850 # uncertainty of +/- 100 parsecs
+
+# Scatter plot for data for M67
+plt.scatter(m67['B'] - m67['V'], m67['V'], s=[4], label="M67", alpha=0.33, color="orange")
+
+# Age for M67 (found through guess and check aligning turn-off point): uncertainty of +/- 5 x 10^8 years
+m67iso = isochrones['e9']['two']
+m67iso_B = np.array(m67iso['B'])
+m67iso_V = np.array(m67iso['V'])
+plot_isoc(m67iso_B, m67iso_V, "2 x 10^9 years", distance_m67)
+
+m67iso = isochrones['e9']['three']
+m67iso_B = np.array(m67iso['B'])
+m67iso_V = np.array(m67iso['V'])
+plot_isoc(m67iso_B, m67iso_V, "3 x 10^9 years", distance_m67)
+
+m67iso = isochrones['e9']['four']
+m67iso_B = np.array(m67iso['B'])
+m67iso_V = np.array(m67iso['V'])
+plot_isoc(m67iso_B, m67iso_V, "4 x 10^9 years", distance_m67)
+
+plt.gca().invert_yaxis() # smaller V is brighter
+plt.title("Comparison of Reasonable Isochrone Ages for M67")
+plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
+plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
+
+plt.legend()
+plt.gcf().savefig(fname="BO_AC_4/images/M67_Multiple.png", dpi=300)
+plt.show()
+
+# PLOT FOR M67 WITH DIFFERENT AGES:
+
+plt.figure()
+
+# Scatter plot for data for M67
+plt.scatter(m67['B'] - m67['V'], m67['V'], s=[4], label="M67", alpha=0.33, color="orange")
+
+# Age for M67 (found through guess and check aligning turn-off point): uncertainty of +/- 5 x 10^8 years
+m67iso = isochrones['e9']['three']
+m67iso_B = np.array(m67iso['B'])
+m67iso_V = np.array(m67iso['V'])
+
+distance_m67 = 750
+plot_isoc(m67iso_B, m67iso_V, "750 pc", distance_m67)
+
+distance_m67 = 850
+plot_isoc(m67iso_B, m67iso_V, "850 pc", distance_m67)
+
+distance_m67 = 950
+plot_isoc(m67iso_B, m67iso_V, "950 pc", distance_m67)
+
+plt.gca().invert_yaxis() # smaller V is brighter
+plt.title("Comparison of Reasonable Distances for M67")
+plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
+plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
+
+plt.legend()
+plt.gcf().savefig(fname="BO_AC_4/images/M67_Distances.png", dpi=300)
+plt.show()
+
+# FINAL PLOT FOR M67:
 
 plt.figure()
 
@@ -110,7 +241,7 @@ plt.scatter(m67['B'] - m67['V'], m67['V'], s=[4], label="M67", alpha=0.33, color
 m67iso = isochrones['e9']['three']
 m67iso_B = np.array(m67iso['B'])
 m67iso_V = np.array(m67iso['V'])
-plot_isoc(m67iso_B, m67iso_V, "3 x 10^9 years", distance_m67)
+plot_isoc(m67iso_B, m67iso_V, "3 x 10^9 years, 850 pc", distance_m67)
 
 plt.gca().invert_yaxis() # smaller V is brighter
 plt.title("CMD Diagram for M67 and Isochrone")
