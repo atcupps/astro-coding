@@ -17,6 +17,7 @@ plt.gca().invert_yaxis() # smaller V is brighter
 plt.title("CMD Diagram for M45")
 plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
 plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
+plt.gcf().savefig(fname="BO_AC_4/images/CMD_M45.png", dpi=300)
 plt.show()
 
 # Function for Planck's Law in SI units (from lab 3)
@@ -71,4 +72,5 @@ rect1 = plt.axvspan(400 * (10 ** (-9)), 500 * (10 ** (-9)), color='blue', alpha 
 rect2 = plt.axvspan(500 * (10 ** (-9)), 700 * (10 ** (-9)), color='green', alpha=0.23, label="V filter") # For V
 
 plt.legend()
+plt.gcf().savefig(fname="BO_AC_4/images/BV_Ranges.png", dpi=300)
 plt.show()

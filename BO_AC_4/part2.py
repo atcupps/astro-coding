@@ -23,7 +23,7 @@ def plot_isoc(b_abs, v_abs, label_in, distance):
     # Using the distance modulus formula:
     b_app = 5*np.log10(distance) - 5 + b_abs
     v_app = 5*np.log10(distance) - 5 + v_abs
-    plt.scatter(b_app - v_app, v_app, s=[4], label=label_in, alpha=0.44)
+    plt.plot(b_app - v_app, v_app, label=label_in)
 
 # Plot for Isochrones
 plt.figure()
@@ -69,6 +69,7 @@ plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
 plt.ylabel("Absolute Magnitude in Visible Color Index (V)")
 
 plt.legend()
+plt.gcf().savefig(fname="BO_AC_4/images/Isochrones_40pc.png", dpi=300)
 plt.show()
 
 
@@ -80,7 +81,7 @@ plt.figure()
 distance_m45 = 132.5 # uncertainty of 7.5
 
 # Scatter plot for data for M45
-plt.scatter(m45['B'] - m45['V'], m45['V'], s=[4], label="M45", alpha=0.44)
+plt.scatter(m45['B'] - m45['V'], m45['V'], s=[4], label="M45", alpha=0.44, color="orange")
 
 # Age for M45 (found through guess and check aligning turn-off point):
 plot_isoc(age2e8_B, age2e8_V, "2 x 10^8 years", distance_m45)
@@ -92,6 +93,7 @@ plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
 plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
 
 plt.legend()
+plt.gcf().savefig(fname="BO_AC_4/images/M45_Fit.png", dpi=300)
 plt.show()
 
 # PLOT FOR M67:
@@ -102,7 +104,7 @@ plt.figure()
 distance_m67 = 850 # uncertainty of +/- 100 parsecs
 
 # Scatter plot for data for M67
-plt.scatter(m67['B'] - m67['V'], m67['V'], s=[4], label="M67", alpha=0.33)
+plt.scatter(m67['B'] - m67['V'], m67['V'], s=[4], label="M67", alpha=0.33, color="orange")
 
 # Age for M67 (found through guess and check aligning turn-off point): uncertainty of +/- 5 x 10^8 years
 m67iso = isochrones['e9']['three']
@@ -116,4 +118,5 @@ plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
 plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
 
 plt.legend()
+plt.gcf().savefig(fname="BO_AC_4/images/M67_Fit.png", dpi=300)
 plt.show()
