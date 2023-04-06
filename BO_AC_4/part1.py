@@ -14,7 +14,7 @@ m67 = pandas.read_table(m67_path, sep='\t', usecols=[10, 11], na_values='')
 plt.figure()
 plt.scatter(m45['B'] - m45['V'], m45['V'], s=[4])
 plt.gca().invert_yaxis() # smaller V is brighter
-plt.title("CMD Diagram for M45")
+plt.title("Color Magnitude Diagram for M45")
 plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
 plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
 plt.gcf().savefig(fname="BO_AC_4/images/CMD_M45.png", dpi=300)
@@ -44,7 +44,7 @@ wavelengths = np.linspace(10 ** (-10), 1.5 * (10 ** (-6)), 100)
 intensities1 = planck(wavelengths, temp1)
 
 # Getting the temperature of a star with (B-V) of 0.6:
-temp2 = temp_from_BV(0.6)
+temp2 = temp_from_BV(0.9)
 # Getting the planck function intensities for (B-V) = 0.6:
 intensities2 = planck(wavelengths, temp2)
 
@@ -55,7 +55,7 @@ plt.figure()
 line1 = plt.plot(wavelengths, intensities1, label="(B-V) = 0.5")
 
 # Plotting blackbody curve for a star with (B - V) = 0.6
-line2 = plt.plot(wavelengths, intensities2, label="(B-V) = 0.6")
+line2 = plt.plot(wavelengths, intensities2, label="(B-V) = 0.9")
 
 # Labels
 plt.title("Blackbody Curves for Stars of Different (B-V) Values with B and V Ranges")

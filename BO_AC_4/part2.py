@@ -64,7 +64,7 @@ plot_isoc(age7e8_B, age7e8_V, "7 x 10^8 years", distance1)
 
 
 plt.gca().invert_yaxis() # smaller V is brighter
-plt.title("CMD Diagram for Isochrones at 40 pc")
+plt.title("CMD for Isochrones at 40 pc")
 plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
 plt.ylabel("Absolute Magnitude in Visible Color Index (V)")
 
@@ -154,7 +154,7 @@ plot_isoc(age2e8_B, age2e8_V, "2 x 10^8 years, 132.5 pc", distance_m45)
 
 
 plt.gca().invert_yaxis() # smaller V is brighter
-plt.title("CMD Diagram for M45 and Isochrone")
+plt.title("CMD for M45 and Isochrone")
 plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
 plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
 
@@ -241,10 +241,10 @@ plt.scatter(m67['B'] - m67['V'], m67['V'], s=[4], label="M67", alpha=0.33, color
 m67iso = isochrones['e9']['three']
 m67iso_B = np.array(m67iso['B'])
 m67iso_V = np.array(m67iso['V'])
-plot_isoc(m67iso_B, m67iso_V, "3 x 10^9 years, 850 pc", distance_m67)
+plot_isoc(m67iso_B, m67iso_V, "3 x 10^9 years, 850 pc ", distance_m67)
 
 plt.gca().invert_yaxis() # smaller V is brighter
-plt.title("CMD Diagram for M67 and Isochrone")
+plt.title("CMD for M67 and Isochrone")
 plt.xlabel("Color Index Difference of Blue and Visible (B - V)")
 plt.ylabel("Apparent Magnitude in Visible Color Index (V)")
 
