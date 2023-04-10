@@ -38,6 +38,7 @@ def temp_from_BV(BV):
 
 # Get temperature of a star with (B-V) of 0.5:
 temp1 = temp_from_BV(0.5)
+print(f"Temp 1: ", temp1)
 # Creating an array of wavelengths from 10^(-10)m to 1.5 * 10^(-6) m
 wavelengths = np.linspace(10 ** (-10), 1.5 * (10 ** (-6)), 100)
 # Getting the planck function intensities for (B-V) = 0.5
@@ -45,6 +46,7 @@ intensities1 = planck(wavelengths, temp1)
 
 # Getting the temperature of a star with (B-V) of 0.6:
 temp2 = temp_from_BV(0.9)
+print(f"Temp 2: ", temp2)
 # Getting the planck function intensities for (B-V) = 0.6:
 intensities2 = planck(wavelengths, temp2)
 
