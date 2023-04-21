@@ -58,7 +58,7 @@ for lon in longitudes:
     # Plotting:
     plt.figure()
     plt.plot(cur_lon[:,0], cur_lon[:,1], label="Spectrum")
-    plt.axvline(x = freq, linestyle = "--", color="orange", label=str(freq) + " MHz")
+    plt.axvline(x = freq, linestyle = "--", color="orange", label=str(round(freq, 3)) + " MHz")
     plt.xlabel("Frequency (MHz)")
     plt.ylabel("Brightness Temperature (K)")
     plt.title("Spectrum for Galactic Longitude of " + str(lon) + " degrees, threshold of 15 K")
