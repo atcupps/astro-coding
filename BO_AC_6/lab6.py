@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from astropy.io import fits
 
 # Making plots wide to take up entire screen
-plt.rcParams['figure.figsize'] = [16, 4]
+plt.rcParams['figure.figsize'] = [12, 4]
 
 f = fits.open("./Galaxies/NGC_1832.fits")
 data = f[0].data
@@ -36,7 +36,7 @@ def plotSpectrum(data, K, H, Ha, name):
     plt.ylabel("Intensity (normalized)")
     plt.title("Spectrum of NGC " + str(name))
 
-    plt.savefig("./Images/Spectra/Spectra_NGC_" + str(name) + ".png", dpi=300)
+    plt.savefig("./Images/Spectra/Spectra_NGC_" + str(name) + ".png", dpi=300, bbox_inches="tight")
 
     plt.show()
 
